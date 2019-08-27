@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="navbar">
+        <h2 class="navbar-header label-primary">Atlantiq</h2>
+         <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Upcoming events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact us</a>
+            </li>
+        </ul>
+    </div>
+    
+        <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <ngb-carousel #carousel interval="2000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+                        <ng-template ngbSlide *ngFor="let img of images; index as i">
+                            <div class="carousel-caption">
+                            <h3> {{services[i]}}</h3>
+                            </div>
+                            <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+                            <div class="picsum-img-wrapper">
+                                <img [src]="img" style="width: 1600px; height: 480px" alt="My image {{i + 1}} description">
+                            </div>
+                            </a>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+        <hr>
+
+         <h4 style="font-family:Segoa Print; padding-left:50px" >Services</h4>
+        <hr>
+        <br>
+        <div style="padding-left:50px; padding-right:50px;" class="row">
+            <div  *ngFor="let desc of descriptions; index as j" class="col-md-3">
+                <div class="card">
+                    <img [src]="images[j]" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{services[j]}}</h5>
+                        <p class="card-text">{{desc.substring(0,128)}}...</p>
+                        <a class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+
+        <hr>
+        <h4 style="font-family:Segoa Print; padding-left:50px" >Upcoming Events</h4>
+        <hr>
+        <br>
+        <div style="padding-left:50px; padding-right:50px;" class="row">
+            <div  *ngFor="let event of events" class="col-md-6">
+                <div class="card">
+                    <img src="{{event.imgPath}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{event.title}}</h5>
+                        <p class="card-text">{{event.date.toString().split('T')[0]}} @ {{event.stratTime.toString().split('T')[1].substring(0,5)}} to {{event.endTime.toString().split('T')[1].substring(0,5)}}</p>
+                        <a *ngIf="event?.indawoId % 2 !== 0"  class="btn btn-primary">Buy ticket</a>
+                        <a *ngIf="event?.indawoId % 2 === 0" href="../rsvp-component/rsvp-component.html" class="btn btn-primary">RSVP</a>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+        
+    </body>
+    <div class="container body-content">    
+            <hr />
+            <footer>
+                <p>Atlantiq Premium Events (Pty) Ltd is a subsidiary of the Atlantiq Group with offices located in Johannesburg, South Africa and a reach that spans across the globe.</p>
+                <p>
+                  <a href="#" target="_blank" >Foundation</a> | <a href="#" target="_blank" >Finacial Services</a> | <a href="#" target="_blank" >Projects</a> | <a href="#" target="_blank" >Atlantiq Functions</a> | <a href="#" target="_blank" >Atlantiq Media</a> | <a href="#" target="_blank" >Atlantiq Clothing</a>
+                </p>
+            </footer>
+        </div>
+</html>
