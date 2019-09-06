@@ -9,7 +9,10 @@ import { AppComponent } from './app.component';
 import { EventsService } from './events/events.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
-import { RsvpComponentComponent } from './rsvp-component/rsvp-component.component';
+import { RsvpComponentComponent } from './rsvp/rsvp-component.component';
+import { RouterModule } from '@angular/router';
+import {routes} from './app-routing.module';
+
 
 
 @NgModule({
@@ -24,7 +27,7 @@ import { RsvpComponentComponent } from './rsvp-component/rsvp-component.componen
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [EventsService],
   bootstrap: [AppComponent]

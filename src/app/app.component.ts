@@ -8,5 +8,4 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 })
 export class AppComponent {
   title = 'AlantiqPremPart';
-  
 }
